@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="SimpleWindowsTool.WSAToolsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:SimpleWindowsTool"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <RelativePanel>
+        <TextBlock Name="Title" Text="WSA Tools"
+                   FontWeight="SemiBold" FontSize="28"
+                   Margin="12,12,0,0"/>
+        <ScrollViewer RelativePanel.Below="Title" Margin="12,12,0,0">
+            <StackPanel>
+                <!--WSA music game mode-->
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="WSA Music Game Mode"
+                               Margin="0,8,12,0"/>
+                    <ToggleSwitch x:Name="WSAMusicGameModeChangeStatusButton" 
+                              Toggled="WSAMusicGameModeChangeStatusButton_Toggled"/>
+                </StackPanel>
+                <StackPanel Margin="48,0,0,0">
+                    <StackPanel.Resources>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="FontSize" Value="10"/>
+                        </Style>
+                    </StackPanel.Resources>
+                    <TextBlock Text="*Tested on Windows 11 22H2 OS Build 22621.2428, run normally." TextWrapping="WrapWholeWords"/>
+                    <TextBlock Text="*Tested on Windows 11 22H2 OS Build 22621.2428 with RD(10.0.15.1208 for Android), run incorrectly." TextWrapping="WrapWholeWords"/>
+                </StackPanel>
+                <!--Open WSA Andriod settings-->
+                <TextBlock Text="Open WSA Android settings" Margin="0,12,0,0"/>
+                <Button Name="OpenWSAAndroidSettingsButton" Content="Open" Click="OpenWSAAndroidSettingsButton_Click" Margin="0,8,0,0"/>
+            </StackPanel>
+        </ScrollViewer>
+    </RelativePanel>
+</Page>

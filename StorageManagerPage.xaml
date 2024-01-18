@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="SimpleWindowsTool.StorageManagerPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:SimpleWindowsTool"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <RelativePanel>
+        <TextBlock Name="Title" Text="Storage Manager" 
+                   FontWeight="SemiBold" FontSize="28" 
+                   Margin="12,12,0,0"/>
+        <StackPanel Margin="12,12,0,0" RelativePanel.Below="Title">
+            <TextBlock Text="Remove logs"/>
+            <TextBlock Text="*Tested and failed to access C:\Windows" FontSize="10"/>
+            <StackPanel Orientation="Horizontal">
+                <ComboBox x:Name="ChooseDiskComboBox" Header="TargetDisk" Margin="16,8,0,0" SelectionChanged="ChooseDiskComboBox_SelectionChanged"/>
+                <Button x:Name="ClearLogsButton" Content="Clear Logs" Click="ClearLogsButton_Click" Margin="8,36,0,0"/>
+                <Grid Margin="0,36,0,0">
+                    <ProgressRing x:Name="ClearLogsProgressRing" Margin="8,4" Height="24" Width="24" IsActive="False"/>
+                    <FontIcon x:Name="ClearLogsFinishedTick" Glyph="&#xE73E;" Visibility="Collapsed"/>
+                </Grid>
+            </StackPanel>
+        </StackPanel>
+    </RelativePanel>
+</Page>

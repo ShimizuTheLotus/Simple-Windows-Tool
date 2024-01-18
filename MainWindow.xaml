@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window
+    x:Class="SimpleWindowsTool.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:SimpleWindowsTool"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <RelativePanel Margin="0,0">
+        <NavigationView x:Name="MainPageNavigationView"
+                        IsPaneOpen="True"
+                        PaneDisplayMode="Auto"
+                        RelativePanel.AlignLeftWithPanel="True"
+                        RelativePanel.AlignRightWithPanel="True"
+                        RelativePanel.AlignTopWithPanel="True"
+                        RelativePanel.AlignBottomWithPanel="True"
+                        ItemInvoked="MainPageNavigationView_ItemInvoked"
+                        Background="{ThemeResource AppBarBackgroundThemeBrush}">
+            <NavigationView.MenuItems>
+                <!--To make sure the program navigate properly, tag NavigationViewItem with template ProgramName.PageName(Exclude .xaml), or the program can't navigate-->
+                <NavigationViewItem x:Name="NavigationViewItem_LiveTiles" Content="LiveTiles" Tag="SimpleWindowsTool.LiveTilesPage">
+                    <NavigationViewItem.Icon>
+                        <BitmapIcon x:Name="NavigationViewLiveTilesLogo"
+                                    UriSource="ms-appx:///Assets/LiveTilesLogo.png" 
+                                    Width="40"
+                                    ShowAsMonochrome="False"/>
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
+                <NavigationViewItem x:Name="NavigationViewItem_WSATools" Content="WSA" Tag="SimpleWindowsTool.WSAToolsPage">
+                    <NavigationViewItem.Icon>
+                        <BitmapIcon UriSource="ms-appx:///Assets/WSALogo.png" 
+                                    Width="40"
+                                    ShowAsMonochrome="False"/>
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
+                <NavigationViewItem x:Name="NavigationViewItem_StorageManager" Content="Storage Manager" Tag="SimpleWindowsTool.StorageManagerPage">
+                    <NavigationViewItem.Icon>
+                        <FontIcon Glyph="&#xEDA2;"/>
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
+            </NavigationView.MenuItems>
+            <RelativePanel Margin="0,48,-8,-8" CornerRadius="8">
+                <Frame x:Name="ContentFrame" Margin="0"
+                       RelativePanel.AlignLeftWithPanel="True"
+                       RelativePanel.AlignRightWithPanel="True"
+                       RelativePanel.AlignTopWithPanel="True"
+                       RelativePanel.AlignBottomWithPanel="True">
+                </Frame>
+            </RelativePanel>
+        </NavigationView>
+        <Rectangle x:Name="AppTitleBar"
+                       RelativePanel.RightOf="MainPageNavigationView"
+                       RelativePanel.AlignRightWithPanel="True"
+                       RelativePanel.AlignTopWithPanel="True"
+                       Height="48"
+                       Fill="{ThemeResource AppBarBackgroundThemeBrush}">
+
+        </Rectangle>
+    </RelativePanel>
+</Window>
